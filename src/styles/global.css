@@ -1,0 +1,8 @@
+:root {
+  --color-gradient: linear-gradient(to right, #9f20ef, #6711ac);
+  --color-card: #110f16;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}

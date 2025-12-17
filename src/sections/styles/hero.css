@@ -1,0 +1,68 @@
+.content-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-card);
+  margin: 0 2rem;
+  padding: 0 2rem;
+  border-radius: 1rem;
+  gap: 2rem;
+}
+
+.content-text {
+  color: white;
+  width: 600px;
+}
+
+.content-me {
+  margin: 2rem 0;
+  object-fit: cover;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.content-btns {
+  flex-direction: row;
+}
+
+.available-text {
+  display: inline-block;
+  background: var(--color-gradient);
+  border-radius: 1000px;
+  padding: 0.5rem 1.2rem;
+}
+
+.title-text,
+.name-text {
+  font-size: 3rem;
+}
+.name-text {
+  background-image: var(--color-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.contact-btn {
+  background: var(--color-gradient);
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 1000px;
+  color: white;
+}
+
+.cv-btn {
+  background: transparent;
+  border: 1px solid white;
+  padding: 0.7rem 3rem;
+  border-radius: 1000px;
+  color: #9f20ef;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.85rem;
+}
