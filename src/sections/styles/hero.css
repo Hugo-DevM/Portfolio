@@ -84,6 +84,7 @@ img {
 @media (max-width: 768px) {
   .content-hero {
     grid-template-columns: 1fr;
+    justify-items: center;
     text-align: center;
     padding: 1.5rem;
     margin: 1rem;
