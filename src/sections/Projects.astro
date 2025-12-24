@@ -1,0 +1,61 @@
+---
+import Card from "../components/Card.astro";
+import "./styles/projects.css";
+
+const projects = [
+  {
+    img: "/freelanzer.webp",
+    title: "Freelanzer",
+    description:
+      "Software para la gestión de servicios y proyectos freelance. Optimiza procesos, clientes y productividad.",
+    project: "Sistema Web",
+    skills: ["Next.js", "React", "Tailwind", "TypeScript"],
+    link: "https://github.com/Hugo-DevM/FreelanzerMX",
+  },
+  {
+    img: "/fidelizaLanding.webp",
+    title: "Landing Fideliza+",
+    description:
+      "Landing page para Fideliza+, el sistema de fidelización para negocios mas eficiente en todo México.",
+    project: "Web",
+    skills: ["Astro", "HTML", "CSS", "JavaScript"],
+    link: "https://github.com/Hugo-DevM/LandingPageFideliza",
+  },
+  {
+    img: "/fidelizaApp.webp",
+    title: "Fideliza+",
+    description:
+      "Plataforma enfocada en la fidelización de clientes para negocios. Crea recompensas y premia a tus clientes mas fieles.",
+    project: "Sistema Web",
+    skills: ["Next.js", "React", "CSS", "TypeScript"],
+    link: "https://github.com/Hugo-DevM/fideliza-app",
+  },
+  {
+    img: "/gymMate.webp",
+    title: "GymMate",
+    description:
+      "Aplicacion movil de gestion de gimnasio para administrar usuarios, entrenadores y gestionar eventos incluyendo el acceso mediante codigo QR para un control eficiente.",
+    project: "Movil",
+    skills: ["React Native", "CSS", "JavaScript", "Firebase"],
+    link: "https://github.com/Hugo-DevM/Project",
+  },
+];
+---
+
+<div class="projects">
+  <h2 class="title">Projectos Destacados</h2>
+  <div class="content-cards">
+    {
+      projects.map((p) => (
+        <Card
+          img={p.img}
+          title={p.title}
+          description={p.description}
+          project={p.project}
+          linkProject={p.link}
+          skills={p.skills}
+        />
+      ))
+    }
+  </div>
+</div>

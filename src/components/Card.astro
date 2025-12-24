@@ -1,0 +1,25 @@
+---
+import "./card.css";
+const {
+  img,
+  title,
+  description,
+  project,
+  linkProject,
+  skills = [],
+} = Astro.props;
+---
+
+<div class="card">
+  <div class="content-img-projects">
+    <img class="img" src={img} alt="Img Project" />
+  </div>
+  <div class="content-text">
+    <h3 class="title">{title}</h3>
+    <p class="description">{description}</p>
+  </div>
+  <div class="content-skills">
+    <a class="title-project" href={linkProject}>{project}</a>
+    {skills.map((s: string) => <span class="skills">{s}</span>)}
+  </div>
+</div>
