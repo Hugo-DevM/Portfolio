@@ -1,9 +1,16 @@
-.content-hero {
+.hero {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: var(--color-card);
+  justify-content: center;
   margin: 0 2rem;
+}
+.content-hero {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  background: var(--color-card);
+  max-width: 1200px;
   padding: 0 2rem;
   border-radius: 1rem;
   gap: 2rem;
@@ -11,14 +18,21 @@
 
 .content-text {
   color: white;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
 }
 
-.content-me {
+.content-img {
   margin: 2rem 0;
   object-fit: cover;
   height: auto;
   border-radius: 1rem;
+}
+
+.content-me {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content-btns {
@@ -65,4 +79,28 @@ img {
   height: auto;
   display: block;
   border-radius: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .content-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .content-me {
+    order: -1;
+  }
+
+  .content-btns {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .title-text,
+  .name-text {
+    font-size: 2.2rem;
+  }
 }
