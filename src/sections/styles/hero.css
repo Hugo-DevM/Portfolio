@@ -36,7 +36,10 @@
 }
 
 .content-btns {
+  display: flex;
   flex-direction: row;
+  margin-top: 2rem;
+  gap: 1.5rem;
 }
 
 .available-text {
@@ -61,17 +64,29 @@
 .contact-btn {
   background: var(--color-gradient);
   border: none;
-  padding: 0.7rem 2rem;
+  padding: 0.5rem 2rem;
   border-radius: 1000px;
   color: white;
+}
+
+.contact-btn:hover {
+  background: transparent;
+  color: #9f20ef;
+  border: 1px solid white;
 }
 
 .cv-btn {
   background: transparent;
   border: 1px solid white;
-  padding: 0.7rem 3rem;
+  padding: 0.5rem 3rem;
   border-radius: 1000px;
   color: #9f20ef;
+  text-decoration: none;
+}
+.cv-btn:hover {
+  color: white;
+  background: var(--color-gradient);
+  border: none;
 }
 
 img {
@@ -92,12 +107,6 @@ img {
 
   .content-me {
     order: -1;
-  }
-
-  .content-btns {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
   }
 
   .title-text,
