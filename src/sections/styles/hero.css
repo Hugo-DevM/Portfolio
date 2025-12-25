@@ -42,9 +42,7 @@
 
 .content-btns {
   display: flex;
-  flex-direction: row;
-  margin-top: 2rem;
-  gap: 1.5rem;
+  padding: 8px 0;
 }
 
 .available-text {
@@ -78,20 +76,6 @@
   background: transparent;
   color: #9f20ef;
   border: 1px solid white;
-}
-
-.cv-btn {
-  background: transparent;
-  border: 1px solid white;
-  padding: 0.5rem 3rem;
-  border-radius: 1000px;
-  color: #9f20ef;
-  text-decoration: none;
-}
-.cv-btn:hover {
-  color: white;
-  background: var(--color-gradient);
-  border: none;
 }
 
 img {
