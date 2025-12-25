@@ -25,3 +25,14 @@
 .links-redes:hover {
   color: var(--color-primary);
 }
+
+@media (max-width: 768px) {
+  .content {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .links {
+    flex-direction: column;
+  }
+}
