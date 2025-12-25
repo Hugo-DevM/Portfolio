@@ -1,0 +1,17 @@
+.skills-tecno {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem 2rem;
+  flex-direction: column;
+  padding-bottom: 4rem;
+}
+
+.content-tecno {
+  max-width: 1200px;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
