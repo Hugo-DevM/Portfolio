@@ -85,4 +85,8 @@
     height: 200px;
     margin-bottom: 2rem;
   }
+
+  .about-me {
+    align-items: center;
+  }
 }
