@@ -15,3 +15,11 @@
   margin: 4rem 0;
   place-items: center;
 }
+
+@media (max-width: 768px) {
+  .content-tecno {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 40vh;
+  }
+}

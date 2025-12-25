@@ -71,3 +71,18 @@
   object-fit: cover;
   object-position: center top;
 }
+
+@media (max-width: 768px) {
+  .content-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .content-img-me {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2rem;
+  }
+}
