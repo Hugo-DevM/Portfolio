@@ -1,0 +1,17 @@
+---
+import GitHubIcon from "../icons/GitHubIcon.astro";
+import "./footer.css";
+const date = new Date();
+const year = date.getFullYear();
+---
+
+<footer class="footer">
+  <div class="content">
+    <p class="rights">© {year} hamc-dev. Casi todos los derechos reservados</p>
+    <div class="links">
+      <a class="links-redes" href="">GitHub</a>
+      <a class="links-redes" href="">LinkedIn</a>
+      <a class="contact-btn" onclick="">Contactame</a>
+    </div>
+  </div>
+</footer>

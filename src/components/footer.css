@@ -1,0 +1,26 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+}
+
+.rights {
+  color: gray;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.links-redes {
+  text-decoration: none;
+  color: white;
+}
+
+.links-redes:hover {
+  color: var(--color-primary);
+}
