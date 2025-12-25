@@ -16,7 +16,8 @@
   gap: 2rem;
 }
 
-.links-redes {
+.links-redes,
+.contact-btn {
   text-decoration: none;
   color: white;
 }
