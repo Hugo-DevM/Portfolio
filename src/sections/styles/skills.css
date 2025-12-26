@@ -8,7 +8,7 @@
 
 .content-tecno {
   max-width: 1200px;
-  width: 100vh;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 2rem;
@@ -21,6 +21,6 @@
   .content-tecno {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 40vh;
+    width: 100%;
   }
 }
