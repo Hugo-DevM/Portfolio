@@ -4,6 +4,9 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar {
@@ -13,6 +16,7 @@
   border: 1px solid #3f3f3f;
   border-radius: 1000px;
   background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
 }
 
 .navbar a {
