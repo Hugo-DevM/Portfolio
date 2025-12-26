@@ -87,6 +87,11 @@ img {
 }
 
 @media (max-width: 768px) {
+  .content-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .content-hero {
     grid-template-columns: 1fr;
     justify-items: center;
