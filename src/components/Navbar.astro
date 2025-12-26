@@ -4,8 +4,56 @@ import "./navbar.css";
 
 <header class="content-header">
   <nav class="navbar">
-    <a href="/">Inicio</a>
-    <a href="#projects">Proyectos</a>
-    <a href="#about-me">Sobre mí</a>
+    <a href="/" data-nav="home">Inicio</a>
+    <a href="#projects" data-nav="projects">Proyectos</a>
+    <a href="#about-me" data-nav="about-me">Sobre mí</a>
   </nav>
 </header>
+
+<script is:inline>
+  function setActiveNav() {
+    const sections = document.querySelectorAll("#projects, #about-me");
+    const navLinks = document.querySelectorAll(".navbar a[data-nav]");
+    const scrollY = window.scrollY;
+    const navbarHeight = 100;
+
+    // Si estamos cerca del top, activar "home"
+    if (scrollY < 200) {
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("data-nav") === "home") {
+          link.classList.add("active");
+        }
+      });
+      return;
+    }
+
+    // Buscar qué sección está visible
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (
+        scrollY >= sectionTop - navbarHeight - 100 &&
+        scrollY < sectionTop + sectionHeight - navbarHeight
+      ) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    // Actualizar clases
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      const linkNav = link.getAttribute("data-nav");
+      if (linkNav === current) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setActiveNav();
+    window.addEventListener("scroll", setActiveNav);
+  });
+</script>
