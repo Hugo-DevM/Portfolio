@@ -20,6 +20,24 @@
 .contact-btn {
   text-decoration: none;
   color: white;
+  position: relative;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.links-redes::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-gradient);
+  transition: width 0.4s ease;
+}
+
+.links-redes:hover::after {
+  width: 100%;
 }
 
 .links-redes:hover {
@@ -32,6 +50,7 @@
     flex-direction: column;
     justify-content: center;
   }
+
   .links {
     flex-direction: column;
   }

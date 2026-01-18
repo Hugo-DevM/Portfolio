@@ -1,6 +1,7 @@
 ---
 import "./card.css";
 const {
+  webLink,
   img,
   title,
   description,
@@ -15,7 +16,7 @@ const {
     <img class="img" src={img} alt="Img Project" />
   </div>
   <div class="content-text">
-    <h3 class="title">{title}</h3>
+    <a class="title" href={webLink}>{title}</a>
     <p class="description">{description}</p>
   </div>
   <div class="content-skills">

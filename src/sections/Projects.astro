@@ -5,6 +5,7 @@ import "./styles/projects.css";
 const projects = [
   {
     img: "/freelanzer.webp",
+    webLink: "https://freelanzer.mx/",
     title: "Freelanzer",
     description:
       "Software para la gestión de servicios y proyectos freelance. Optimiza procesos, clientes y productividad.",
@@ -15,8 +16,9 @@ const projects = [
   {
     img: "/fidelizaLanding.webp",
     title: "Landing Fideliza+",
+    webLink: "https://www.fideliza.app/",
     description:
-      "Landing page para Fideliza+, el sistema de fidelización para negocios mas eficiente en todo México.",
+      "Landing page para Fideliza+, el sistema de fidelización para negocios mas eficiente en todo México. (En desarrollo)",
     repo: "GitHub",
     skills: ["Astro", "HTML", "CSS", "JavaScript"],
     link: "https://github.com/Hugo-DevM/LandingPageFideliza",
@@ -24,8 +26,9 @@ const projects = [
   {
     img: "/fidelizaApp.webp",
     title: "Fideliza+",
+    webLink: "https://mx.fideliza.app/login",
     description:
-      "Plataforma enfocada en la fidelización de clientes para negocios. Crea recompensas y premia a tus clientes mas fieles.",
+      "Plataforma enfocada en la fidelización de clientes para negocios. Crea recompensas y premia a tus clientes mas fieles. (En desarrollo)",
     repo: "GitHub",
     skills: ["Next.js", "React", "CSS", "TypeScript"],
     link: "https://github.com/Hugo-DevM/fideliza-app",
@@ -43,11 +46,12 @@ const projects = [
 ---
 
 <div class="projects" id="projects">
-  <h2 class="title">Proyectos Destacados</h2>
+  <h2 class="title-Proj">Proyectos Destacados</h2>
   <div class="content-cards">
     {
       projects.map((p) => (
         <Card
+          webLink={p.webLink}
           img={p.img}
           title={p.title}
           description={p.description}
