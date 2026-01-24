@@ -1,0 +1,15 @@
+---
+import Articles from "../../components/blog/Articles.astro";
+import HeroBlog from "../../components/blog/HeroBlog.astro";
+import Footer from "../../components/layout/Footer.astro";
+import LayoutBlog from "../../layouts/LayoutBlog.astro";
+import "../../styles/global.css";
+---
+
+<LayoutBlog
+  title="Inicio"
+  description="Artículos prácticos sobre frontend, Astro, React y buenas prácticas."
+>
+  <HeroBlog />
+  <Articles />
+</LayoutBlog>

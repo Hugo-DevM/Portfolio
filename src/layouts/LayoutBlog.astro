@@ -1,69 +1,124 @@
+---
+import Footer from "../components/layout/Footer.astro";
+
+type Props = {
+  title: string;
+  description?: string;
+  canonical?: string;
+  image?: string; 
+  type?: "website" | "article";
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  tags?: string[];
+  noindex?: boolean;
+};
+
+const {
+  title,
+  description = "Blog de Hugo Montaño sobre desarrollo web, frontend, Astro, React y TypeScript.",
+  canonical,
+  image = "/og-blog.webp",
+  type = "website",
+  author = "Hugo Montaño",
+  publishedTime,
+  modifiedTime,
+  tags = [],
+  noindex = false,
+} = Astro.props;
+
+const SITE = "https://www.hamc.dev/blog";
+
+const canonicalUrl = canonical
+  ? new URL(canonical, SITE).toString()
+  : new URL(Astro.url.pathname, SITE).toString();
+
+const ogImage = image.startsWith("http")
+  ? image
+  : new URL(image, SITE).toString();
+
+
+const fullTitle = `${title} | Blog de Hugo Montaño`;
+
+const jsonLd =
+  type === "article"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: title,
+        description,
+        image: [ogImage],
+        author: { "@type": "Person", name: author },
+        datePublished: publishedTime,
+        dateModified: modifiedTime || publishedTime,
+        mainEntityOfPage: canonicalUrl,
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Blog de Hugo Montaño",
+        url: SITE,
+      };
+---
+
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="language" content="Spanish" />
-    <meta name="author" content="Hugo Montaño" />
-    <meta name="robots" content="index, follow" />
 
+    <title>{fullTitle}</title>
+
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+
+    <meta name="author" content={author} />
+
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Blog de Hugo Montaño" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={title} />
+
+    {type === "article" && publishedTime && (
+      <meta property="article:published_time" content={publishedTime} />
+    )}
+    {type === "article" && modifiedTime && (
+      <meta property="article:modified_time" content={modifiedTime} />
+    )}
+    {type === "article" && tags.map((t) => (
+      <meta property="article:tag" content={t} />
+    ))}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={title} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     />
 
-    <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Portfolio de Hugo Montaño - Desarrollador Frontend especializado en crear landing pages y sistemas web. Disponible para proyectos y oportunidades laborales 2026."
-    />
-    <meta
-      name="keywords"
-      content="Hugo Montaño, Desarrollador Web, Frontend Developer, Portfolio, React, Next.js, TypeScript, Landing Pages, Sistemas Web, Freelance Web Developer, Desarrollador Frontend, Trabajo Remoto, Web Development"
-    />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_MX" />
-    <meta property="og:site_name" content="Hugo Montaño - Portfolio" />
-    <meta
-      property="og:title"
-      content="Hugo Montaño | Desarrollador Frontend - Portfolio"
-    />
-    <meta
-      property="og:description"
-      content="Desarrollador Frontend especializado en React, Next.js y TypeScript. Creando productos digitales robustos desde landing pages estratégicas hasta sistemas web complejos."
-    />
-    <meta property="og:url" content="https://hamc.dev/" />
-    <meta property="og:image" content="/portfolio.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="Hugo Montaño - Desarrollador Frontend"
-    />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Hugo Montaño | Desarrollador Frontend"
-    />
-    <meta
-      name="twitter:description"
-      content="Desarrollador Frontend especializado en React, Next.js y TypeScript. Disponible para proyectos y oportunidades laborales."
-    />
-    <meta name="twitter:image" content="/portfolio.webp" />
-    <meta
-      name="twitter:image:alt"
-      content="Hugo Montaño - Desarrollador Frontend"
-    />
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Blog del Desarrollador Frontend - Hugo Montaño</title>
+    <script type="application/ld+json">
+      {JSON.stringify(jsonLd)}
+    </script>
   </head>
+
   <body>
     <slot />
+    <Footer />
   </body>
 </html>
 
