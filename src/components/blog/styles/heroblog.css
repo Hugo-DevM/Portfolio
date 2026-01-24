@@ -1,0 +1,115 @@
+.blog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100svh;
+    color: #fafafa;
+}
+
+.content-blog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1200px;
+    width: min(1200px, 100%);
+    gap: 1rem;
+}
+
+.available-text {
+    display: inline-block;
+    background: var(--color-gradient);
+    border-radius: 1000px;
+    padding: 0.5rem 1.2rem;
+    color: #fafafa;
+}
+
+.textResalt-blog {
+    color: #9a1fe9;
+}
+
+.title-blog {
+    color: #fafafa;
+    font-size: 4rem;
+    max-inline-size: 13ch;
+    white-space: normal;
+    overflow-wrap: break-word;
+    text-align: center;
+    margin-bottom: 0;
+    line-height: 1.3;
+}
+
+.description-blog {
+    max-inline-size: 60ch;
+    white-space: normal;
+    overflow-wrap: break-word;
+    text-align: center;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.subtitle-blog {
+    margin: 0;
+}
+
+
+.btnProjects-blog {
+    margin-top: 1rem;
+    text-decoration: none;
+    background: var(--color-gradient);
+    padding: 0.5rem 2rem;
+    border-radius: 1000px;
+    color: white;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+.btnProjects-blog:hover {
+    scale: 1.1;
+}
+
+@media (max-width: 768px) {
+    .blog {
+        min-height: 100svh;
+        padding: 2.5rem 1rem;
+    }
+
+    .content-blog {
+        width: 100%;
+        padding: 0;
+        gap: 0.75rem;
+    }
+
+    .available-text {
+        font-size: 0.85rem;
+        padding: 0.45rem 1rem;
+    }
+
+    .title-blog {
+        font-size: 2.3rem;
+        line-height: 1.2;
+        max-inline-size: 14ch;
+    }
+
+    .subtitle-blog {
+        font-size: 1.05rem;
+    }
+
+    .description-blog {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        max-inline-size: 30ch;
+    }
+
+    .btnProjects-blog {
+        margin-top: 1.25rem;
+        text-align: center;
+        width: 100%;
+        max-width: 320px;
+        padding: 0.85rem 1.25rem;
+    }
+
+    .btnProjects-blog:hover {
+        transform: none;
+    }
+}

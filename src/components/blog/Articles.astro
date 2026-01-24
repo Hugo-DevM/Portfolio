@@ -1,0 +1,97 @@
+---
+import CardBlog from "./ui/CardBlog.astro";
+import "./styles/articles.css";
+const articles = [
+  {
+    id: 1,
+    ref: "/",
+    icon: `
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="32"
+  height="32"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#9f20ef"
+  stroke-width="1"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
+  <path d="M16 16v2a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2h2" />
+</svg>
+`,
+    title: "Articulos",
+    description:
+      "Tutoriales y guías sobre React, Next.js, Astro, TypeScript y desarrollo frontend moderno.",
+  },
+  {
+    id: 2,
+    ref: "/",
+    icon: `
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="32"
+  height="32"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#9f20ef"
+  stroke-width="1"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 12h.01" />
+  <path d="M12 12h.01" />
+  <path d="M9 12h.01" />
+  <path d="M6 19a2 2 0 0 1 -2 -2v-4l-1 -1l1 -1v-4a2 2 0 0 1 2 -2" />
+  <path d="M18 19a2 2 0 0 0 2 -2v-4l1 -1l-1 -1v-4a2 2 0 0 0 -2 -2" />
+</svg>
+`,
+    title: "Componentes",
+    description:
+      "Colección de componentes UI listos para usar con codigo y documentacion.",
+  },
+  {
+    id: 3,
+    ref: "/",
+    icon: `
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="32"
+  height="32"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#9f20ef"
+  stroke-width="1"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 4m0 1a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1z" />
+  <path d="M4 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M14 12l6 0" />
+  <path d="M14 16l6 0" />
+  <path d="M14 20l6 0" />
+</svg>
+`,
+    title: "Plantillas",
+    description:
+      "Plantillas profesionales para portafolios landing pages y mucho más.",
+  },
+];
+---
+
+<section class="articles">
+  <div class="content-articles">
+    {
+      articles.map((a) => (
+        <CardBlog
+          ref={a.ref}
+          id={a.id}
+          icon={a.icon}
+          title={a.title}
+          description={a.description}
+        />
+      ))
+    }
+  </div>
+</section>

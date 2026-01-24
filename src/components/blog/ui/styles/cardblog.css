@@ -1,0 +1,55 @@
+.card-blog {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.105);
+    border-radius: 1rem;
+    background: hsl(240, 9%, 9%);
+    padding: 2rem;
+    gap: .5rem;
+    width: 380px;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border 0.3s ease;
+}
+
+.icon-blog {
+    display: flex;
+    align-items: center;
+    background-color: #322246;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.titleCard-blog {
+    color: #fafafa;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.descCard-blog {
+    color: #7d7d88;
+}
+
+.card-blog:hover {
+    border: 1px solid #9f20ef;
+    transform: translateY(-10px);
+    box-shadow:
+        0 10px 30px rgba(159, 32, 239, 0.25),
+        0 10px 25px rgba(159, 32, 239, 0.15);
+}
+
+@media (max-width: 1400px) {
+    .card-blog {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-blog {
+        width: 280px;
+    }
+}

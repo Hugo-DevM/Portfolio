@@ -1,0 +1,10 @@
+---
+import "./styles/cardblog.css";
+const { id, icon, title, description, ref } = Astro.props;
+---
+
+<a href={ref} class="card-blog">
+  <div set:html={icon} class="icon-blog" />
+  <span class="titleCard-blog">{title}</span>
+  <span class="descCard-blog">{description}</span>
+</a>
