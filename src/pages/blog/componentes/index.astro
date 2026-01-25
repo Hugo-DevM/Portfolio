@@ -1,0 +1,42 @@
+---
+import LayoutBlog from "../../../layouts/LayoutBlog.astro";
+import "../../../styles/global.css";
+---
+
+<LayoutBlog
+  title="Componentes"
+  description="Componentes web con HTML,CSS y JavaScript reutilizables"
+>
+  <main class="main-articles">
+    <h1 class="title-articles">
+      Próximamente: <span class="available-text"> Componentes</span>
+      para Desarrolladores<span class="available-text"> Fronted</span>
+    </h1>
+  </main>
+</LayoutBlog>
+
+<style>
+  .main-articles {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .title-articles {
+    font-size: 3rem;
+    text-align: center;
+    color: #fafafa;
+    font-family: "Poppins", sans-serif;
+    max-inline-size: 16ch;
+    white-space: normal;
+    overflow-wrap: break-word;
+    text-align: center;
+    margin-bottom: 0;
+    line-height: 1.3;
+  }
+  .available-text {
+    color: #9a1fe9;
+  }
+</style>
