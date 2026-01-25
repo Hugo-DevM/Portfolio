@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100svh;
     color: #fafafa;
+    margin: 4rem 0;
 }
 
 .content-blog {
