@@ -17,6 +17,10 @@
   place-items: center;
 }
 
+.title {
+  font-size: 32px;
+}
+
 .content-tecno svg {
   width: 48px;
   height: 48px;
