@@ -1,0 +1,56 @@
+---
+import Card from "../components/ui/Card.astro";
+import "./styles/projects.css";
+
+const desingWeb = [
+  {
+    img: "/bravvo.webp",
+    webLink: "landing-page-bravvo.vercel.app",
+    title: "Bravvo Consulting",
+    description:
+      "Landing conceptual para consultoría de pymes enfocada en transmitir confianza y claridad en sus servicios.",
+    repo: "GitHub",
+    skills: ["Astro", "HTML", "CSS", "JavaScript"],
+    link: "https://github.com/Hugo-DevM/LandingPage-Bravvo",
+  },
+  {
+    img: "/fidelizaLanding.webp",
+    title: "Landing Fideliza+",
+    webLink: "https://www.fideliza.app/",
+    description:
+      "Landing page para Fideliza+, el sistema de fidelización para negocios mas eficiente en todo México. (En desarrollo)",
+    repo: "GitHub",
+    skills: ["Astro", "HTML", "CSS", "JavaScript"],
+    link: "https://github.com/Hugo-DevM/LandingPageFideliza",
+  },
+  {
+    img: "/palomitaspop.webp",
+    title: "Palomitas Pop",
+    webLink: "landing-page-pop.vercel.app",
+    description:
+      "Landing page de producto enfocada en destacar sabores y facilitar el proceso de pedido.",
+    repo: "GitHub",
+    skills: ["Astro", "HTML", "CSS", "JavaScript"],
+    link: "https://github.com/Hugo-DevM/LandingPage-Pop",
+  },
+];
+---
+
+<div class="projects" id="projects">
+  <h2 class="title-Proj">Diseños Web</h2>
+  <div class="content-cards">
+    {
+      desingWeb.map((p) => (
+        <Card
+          webLink={p.webLink}
+          img={p.img}
+          title={p.title}
+          description={p.description}
+          project={p.repo}
+          linkProject={p.link}
+          skills={p.skills}
+        />
+      ))
+    }
+  </div>
+</div>

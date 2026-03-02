@@ -42,9 +42,14 @@
   background: var(--color-gradient);
   border-radius: 1000px;
   padding: 0.5rem 1.2rem;
+  transition: all 0.3s ease;
 }
 
-.title {
+.title-project:hover{
+  scale: 1.1;
+}
+
+.titleCard {
   color: white;
   text-decoration: none;
   font-size: 18px;
@@ -54,14 +59,14 @@
   cursor: pointer;
 }
 
-.title:hover {
+.titleCard:hover {
   background-image: var(--color-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
-.title::after {
+.titleCard::after {
   content: "";
   position: absolute;
   bottom: -4px;
@@ -72,7 +77,7 @@
   transition: width 0.4s ease;
 }
 
-.title:hover::after {
+.titleCard:hover::after {
   width: 100%;
 }
 
