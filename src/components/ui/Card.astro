@@ -22,7 +22,9 @@ const {
     <img class="img" src={img} alt={`Captura de ${title}`} />
   </div>
   <div class="card-content">
-    <a class="titleCard" href={webLink}>{title}</a>
+    <a class="titleCard" href={webLink} target="_blank" rel="noopener"
+      >{title}</a
+    >
     <p class="description">{description}</p>
     <div class="content-skills">
       {skills.map((s: string) => <span class="pill">{s}</span>)}

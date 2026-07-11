@@ -1,11 +1,22 @@
+---
+const {
+  title = "Hugo Montaño | Desarrollador Full Stack - Portfolio",
+  description = "Portfolio de Hugo Montaño - Desarrollador Full Stack especializado en Next.js, React, Astro, TypeScript y Supabase. Aplicaciones web, sistemas SaaS y landing pages. Disponible 2026.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/portfolio.webp", Astro.site);
+---
+
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="language" content="Spanish" />
     <meta name="author" content="Hugo Montaño" />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0b0913" />
+    <link rel="canonical" href={canonicalURL} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,56 +26,68 @@
     />
 
     <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Portfolio de Hugo Montaño - Desarrollador Frontend especializado en crear landing pages y sistemas web. Disponible para proyectos y oportunidades laborales 2026."
-    />
-    <meta
-      name="keywords"
-      content="Hugo Montaño, Desarrollador Web, Frontend Developer, Portfolio, React, Next.js, TypeScript, Landing Pages, Sistemas Web, Freelance Web Developer, Desarrollador Frontend, Trabajo Remoto, Web Development"
-    />
+    <meta name="description" content={description} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />
     <meta property="og:site_name" content="Hugo Montaño - Portfolio" />
-    <meta
-      property="og:title"
-      content="Hugo Montaño | Desarrollador Frontend - Portfolio"
-    />
-    <meta
-      property="og:description"
-      content="Desarrollador Frontend especializado en React, Next.js y TypeScript. Creando productos digitales robustos desde landing pages estratégicas hasta sistemas web complejos."
-    />
-    <meta property="og:url" content="https://hamc.dev/" />
-    <meta property="og:image" content="/portfolio.webp" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Hugo Montaño - Desarrollador Frontend"
+      content="Hugo Montaño - Desarrollador Full Stack"
     />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Hugo Montaño | Desarrollador Frontend"
-    />
-    <meta
-      name="twitter:description"
-      content="Desarrollador Frontend especializado en React, Next.js y TypeScript. Disponible para proyectos y oportunidades laborales."
-    />
-    <meta name="twitter:image" content="/portfolio.webp" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <meta
       name="twitter:image:alt"
-      content="Hugo Montaño - Desarrollador Frontend"
+      content="Hugo Montaño - Desarrollador Full Stack"
     />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <title>Hugo Montaño | Desarrollador Frontend - Portfolio</title>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+
+    <!-- Datos estructurados: Person -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Hugo Montaño",
+        alternateName: "hamc.dev",
+        url: "https://hamc.dev/",
+        image: "https://hamc.dev/me.webp",
+        jobTitle: "Desarrollador Full Stack",
+        email: "mailto:mobile.developer.mx@gmail.com",
+        knowsAbout: [
+          "Next.js",
+          "React",
+          "Astro",
+          "TypeScript",
+          "Supabase",
+          "JavaScript",
+          "Node.js",
+        ],
+        sameAs: [
+          "https://github.com/Hugo-DevM",
+          "https://linkedin.com/in/hamcdev",
+          "https://www.instagram.com/hugo.devmx",
+          "https://www.tiktok.com/@hamcdev",
+        ],
+      })}
+    />
   </head>
   <body>
     <slot />
