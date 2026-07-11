@@ -1,7 +1,12 @@
 ---
+import { getCollection } from "astro:content";
 import LayoutBlog from "../../../layouts/LayoutBlog.astro";
 import BackToBlog from "../../../components/ui/BackToBlog.astro";
 import "../../../styles/global.css";
+
+const articulos = (
+  await getCollection("articulos", ({ data }) => !data.draft)
+).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
 <LayoutBlog
@@ -10,10 +15,45 @@ import "../../../styles/global.css";
 >
   <BackToBlog />
   <main class="main-articles">
-    <h1 class="title-articles">
-      Próximamente: <span class="available-text"> Artículos</span>
-      para Desarrolladores<span class="available-text"> Fronted</span>
-    </h1>
+    {
+      articulos.length === 0 ? (
+        <h1 class="title-articles">
+          Próximamente: <span class="available-text"> Artículos</span>
+          para Desarrolladores<span class="available-text"> Fronted</span>
+        </h1>
+      ) : (
+        <>
+          <h1 class="title-list">
+            Artículos y <span class="available-text">tutoriales</span>
+          </h1>
+          <div class="articles-grid">
+            {articulos.map((articulo) => (
+              <a class="article-card" href={`/blog/articulos/${articulo.id}`}>
+                <time
+                  class="article-date"
+                  datetime={articulo.data.date.toISOString()}
+                >
+                  {articulo.data.date.toLocaleDateString("es-MX", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </time>
+                <h2 class="article-title">{articulo.data.title}</h2>
+                <p class="article-description">{articulo.data.description}</p>
+                {articulo.data.tags.length > 0 && (
+                  <div class="article-tags">
+                    {articulo.data.tags.map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
   </main>
 </LayoutBlog>
 
@@ -24,6 +64,11 @@ import "../../../styles/global.css";
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 3rem 2rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .title-articles {
@@ -34,11 +79,84 @@ import "../../../styles/global.css";
     max-inline-size: 13ch;
     white-space: normal;
     overflow-wrap: break-word;
-    text-align: center;
     margin-bottom: 0;
     line-height: 1.3;
   }
+
+  .title-list {
+    font-size: 3rem;
+    text-align: center;
+    color: #fafafa;
+    margin-bottom: 3rem;
+    line-height: 1.3;
+  }
+
   .available-text {
     color: #9a1fe9;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 420px));
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: var(--color-card);
+    border: 1px solid rgba(159, 32, 239, 0.15);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-decoration: none;
+    transition: all 0.4s ease;
+  }
+
+  .article-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(159, 32, 239, 0.4);
+  }
+
+  .article-date {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+  }
+
+  .article-title {
+    color: white;
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .article-description {
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .article-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.3rem;
+  }
+
+  .tag {
+    color: var(--color-primary);
+    border: 1px solid rgba(159, 32, 239, 0.35);
+    border-radius: 1000px;
+    padding: 0.15rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .title-articles,
+    .title-list {
+      font-size: 2rem;
+    }
   }
 </style>
