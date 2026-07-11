@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     color: #fafafa;
-    margin: 4rem 0;
+    margin-bottom: 4rem;
 }
 
 .content-blog {
@@ -31,7 +31,7 @@
 .title-blog {
     color: #fafafa;
     font-size: 4rem;
-    max-inline-size: 13ch;
+    max-inline-size: 14ch;
     white-space: normal;
     overflow-wrap: break-word;
     text-align: center;
