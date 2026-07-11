@@ -4,34 +4,49 @@ import "./styles/projects.css";
 
 const desingWeb = [
   {
-    img: "/bravvo.webp",
-    webLink: "landing-page-bravvo.vercel.app",
+    img: "/bravo.webp",
+    webLink: "https://landing-page-bravvo.vercel.app/",
     title: "Bravvo Consulting",
     description:
       "Landing conceptual para consultoría de pymes enfocada en transmitir confianza y claridad en sus servicios.",
-    repo: "GitHub",
     skills: ["Astro", "HTML", "CSS", "JavaScript"],
-    link: "https://github.com/Hugo-DevM/LandingPage-Bravvo",
   },
   {
-    img: "/fidelizaLanding.webp",
-    title: "Landing Fideliza+",
+    img: "/fidelizasaas.webp",
+    logo: true,
+    title: "Landing Fideliza",
     webLink: "https://www.fideliza.app/",
     description:
-      "Landing page para Fideliza+, el sistema de fidelización para negocios mas eficiente en todo México. (En desarrollo)",
-    repo: "GitHub",
-    skills: ["Astro", "HTML", "CSS", "JavaScript"],
-    link: "https://github.com/Hugo-DevM/LandingPageFideliza",
+      "Landing page para Fideliza, el sistema de fidelización para negocios mas eficiente en todo México. (En desarrollo)",
+    skills: ["Next.js", "HTML", "Tailwind", "TypeScript"],
   },
   {
-    img: "/palomitaspop.webp",
-    title: "Palomitas Pop",
-    webLink: "https://landing-page-pop.vercel.app/",
+    img: "/laptopsmaster.webp",
+    logo: true,
+    title: "Laptops Master",
+    webLink: "https://www.laptopsmaster.com/",
     description:
-      "Landing page de producto enfocada en destacar sabores y facilitar el proceso de pedido.",
-    repo: "GitHub",
+      "Rediseño web para un negocio especializado en reparación y mantenimiento de equipos de cómputo, enfocado en mostrar servicios y mejorar la atención al cliente",
     skills: ["Astro", "HTML", "CSS", "JavaScript"],
-    link: "https://github.com/Hugo-DevM/LandingPage-Pop",
+  },
+  {
+    img: "/floreriatulipan.webp",
+    logo: true,
+    logoBg: "#fbfaf8",
+    title: "Floreria Tulipan",
+    webLink: "https://www.floreriatulipan.mx/",
+    description:
+      "E-commerce básico para una florería local con catálogo de productos, panel administrativo y pedidos automáticos por WhatsApp.",
+    skills: ["Next.js", "HTML", "Tailwind", "TypeScript"],
+  },
+  {
+    img: "/hamcsoft.webp",
+    logo: true,
+    title: "HAMCSoft",
+    webLink: "https://hamcsoft.com/",
+    description:
+      "Sitio web corporativo de HAMCSoft, mi agencia de desarrollo web, creado para presentar servicios, proyectos y soluciones digitales para negocios y emprendedores.",
+    skills: ["Next.js", "HTML", "Tailwind", "TypeScript"],
   },
   {
     img: "/globalsolutions.webp",
@@ -39,9 +54,7 @@ const desingWeb = [
     webLink: "https://web-global-solutions.vercel.app/",
     description:
       "Landing page de gestion financiera para empresas en Puerto Vallarta y Bahía de Banderas.",
-    repo: "GitHub",
     skills: ["Astro", "HTML", "CSS", "JavaScript"],
-    link: "https://www.hamc.dev/",
   },
 ];
 ---
@@ -55,10 +68,10 @@ const desingWeb = [
         <Card
           webLink={p.webLink}
           img={p.img}
+          logo={p.logo}
+          logoBg={p.logoBg}
           title={p.title}
           description={p.description}
-          project={p.repo}
-          linkProject={p.link}
           skills={p.skills}
         />
       ))

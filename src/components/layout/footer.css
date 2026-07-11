@@ -25,6 +25,16 @@
   cursor: pointer;
 }
 
+.links-redes {
+  font-size: 12px;
+}
+
+.links .contact-btn {
+  padding: 0.4rem 1rem;
+  font-size: 14px;
+}
+
+
 .links-redes::after {
   content: "";
   position: absolute;

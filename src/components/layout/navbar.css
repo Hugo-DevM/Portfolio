@@ -41,6 +41,7 @@
 
 .navbar-logo-link {
   display: flex;
+  position: relative;
   font-size: 1.5rem;
   font-weight: 900;
   color: white;
@@ -52,6 +53,31 @@
   color: var(--color-primary);
 }
 
-.navbar-logo-link:hover {
-  /*animation*/
+/* Al hacer hover el logo se convierte en una etiqueta de código: <hamc.dev /> */
+.navbar-logo-link::before,
+.navbar-logo-link::after {
+  position: absolute;
+  color: var(--color-primary);
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar-logo-link::before {
+  content: "<";
+  left: -0.75em;
+  transform: translateX(0.5em) rotate(90deg);
+}
+
+.navbar-logo-link::after {
+  content: "/>";
+  right: -1.3em;
+  transform: translateX(-0.5em) rotate(-90deg);
+}
+
+.navbar-logo-link:hover::before,
+.navbar-logo-link:hover::after {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg);
 }

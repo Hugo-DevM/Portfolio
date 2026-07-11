@@ -4,7 +4,7 @@
   margin: 4rem auto;
   max-width: 1200px;
   padding-inline: 2rem;
-  scroll-margin-top: 60px;
+  scroll-margin-top: 90px;
 }
 
 .section-eyebrow {
@@ -54,10 +54,23 @@
   border-color: rgba(159, 32, 239, 0.5);
 }
 
+.featured-img {
+  position: relative;
+  min-height: 320px;
+}
+
+.featured-img {
+  background: white;
+}
+
 .featured-img img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 3rem;
+  box-sizing: border-box;
   display: block;
   border-radius: 0;
 }
@@ -123,9 +136,9 @@
     grid-template-columns: 1fr;
   }
 
-  .featured-img img {
+  .featured-img {
+    min-height: auto;
     aspect-ratio: 16 / 10;
-    height: auto;
   }
 
   .featured-content {

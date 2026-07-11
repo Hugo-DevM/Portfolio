@@ -2,13 +2,12 @@
 import "./styles/projects.css";
 
 const featured = {
-  img: "/fidelizaApp.webp",
-  title: "Fideliza+",
-  webLink: "https://mx.fideliza.app/login",
+  img: "/fidelizasaas.webp",
+  title: "Fideliza",
+  webLink: "https://fideliza.app/",
   description:
-    "Plataforma enfocada en la fidelización de clientes para negocios. Crea recompensas y premia a tus clientes mas fieles. (En desarrollo)",
-  skills: ["Next.js", "React", "CSS", "TypeScript"],
-  link: "https://github.com/Hugo-DevM/fideliza-app",
+    "Plataforma enfocada en la fidelización y retencion de clientes para negocios. Crea recompensas y premia a tus clientes mas fieles. (En desarrollo)",
+  skills: ["Next.js", "React", "Tailwind", "TypeScript"],
 };
 ---
 
@@ -28,7 +27,6 @@ const featured = {
       <div class="featured-skills">
         {featured.skills.map((s) => <span class="pill">{s}</span>)}
       </div>
-      <a class="github-link" href={featured.link} target="_blank">GitHub →</a>
     </div>
   </div>
 </section>

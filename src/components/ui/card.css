@@ -27,6 +27,16 @@
   border-radius: 0;
 }
 
+.img-logo {
+  background: white;
+}
+
+.img-logo .img {
+  object-fit: contain;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
 .status-badge {
   position: absolute;
   top: 1rem;

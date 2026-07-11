@@ -6,14 +6,18 @@ const {
   title,
   description,
   project,
-  linkProject,
   skills = [],
   status,
+  logo = false,
+  logoBg,
 } = Astro.props;
 ---
 
 <div class="card">
-  <div class="content-img-projects">
+  <div
+    class:list={["content-img-projects", { "img-logo": logo }]}
+    style={logoBg ? `background: ${logoBg}` : undefined}
+  >
     {status && <span class="status-badge">{status}</span>}
     <img class="img" src={img} alt={`Captura de ${title}`} />
   </div>
@@ -23,6 +27,5 @@ const {
     <div class="content-skills">
       {skills.map((s: string) => <span class="pill">{s}</span>)}
     </div>
-    <a class="github-link" href={linkProject} target="_blank">{project} →</a>
   </div>
 </div>
