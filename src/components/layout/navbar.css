@@ -81,3 +81,98 @@
   opacity: 1;
   transform: translateX(0) rotate(0deg);
 }
+
+/* El botón Contáctame dentro del menú solo se ve en móvil */
+.navbar .contact-btn-mobile {
+  display: none;
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.navbar-toggle span {
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Tablet: se compacta */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .navbar-links {
+    gap: 1.2rem;
+  }
+
+  .links {
+    font-size: 16px;
+  }
+}
+
+/* Móvil: menú hamburguesa */
+@media (max-width: 768px) {
+  .navbar-contact {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0 2rem;
+    background: rgba(11, 9, 19, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(159, 32, 239, 0.25);
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: all 0.3s ease;
+  }
+
+  .navbar-links.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .navbar .contact-btn-mobile {
+    display: inline-block;
+  }
+
+  .links {
+    font-size: 18px;
+  }
+}
