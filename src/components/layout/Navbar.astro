@@ -4,10 +4,22 @@ import "./navbar.css";
 
 <header class="content-header">
   <nav class="navbar">
-    <a href="/" data-nav="home">Inicio</a>
-    <a href="#projects" data-nav="projects">Proyectos</a>
-    <a href="#about-me" data-nav="about-me">Sobre mí</a>
-    <a href="/blog" data-nav="blog">Blog</a>
+    <div class="navbar-logo">
+      <a class="navbar-logo-link" href="/"
+        >hamc<span class="navbar-logo-linkSpan">.dev</span></a
+      >
+    </div>
+    <div class="navbar-links">
+      <a class="links" href="/" data-nav="home">Inicio</a>
+      <a class="links" href="#projects" data-nav="projects">Proyectos</a>
+      <a class="links" href="#about-me" data-nav="about-me">Sobre mí</a>
+      <a class="links" href="/blog" data-nav="blog">Blog</a>
+    </div>
+    <div class="navbar-contact">
+      <a class="contact-btn" href="mailto:mobile.developer.mx@gmail.com"
+        >Contáctame</a
+      >
+    </div>
   </nav>
 </header>
 

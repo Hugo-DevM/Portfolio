@@ -2,8 +2,17 @@
   --color-primary: #9f20ef;
   --color-gradient: linear-gradient(to right, #9f20ef, #6711ac);
   --color-card: #110f16;
+  --color-background: #0b0913;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+h1,
+h2,
+h3 {
+  font-family: "Sora", sans-serif;
+}
+
+a,
+p,
+span {
+  font-family: "Inter", sans-serif;
 }

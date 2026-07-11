@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -11,25 +10,48 @@
 
 .navbar {
   display: flex;
-  gap: 2rem;
-  padding: 0.5rem 2rem;
-  border: 1px solid #3f3f3f;
-  border-radius: 1000px;
-  background: rgba(255, 255, 255, 0.04);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem 3rem;
   backdrop-filter: blur(10px);
 }
 
-.navbar a {
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.links {
+  font-size: 18px;
   text-decoration: none;
   color: white;
   transition: color 0.3s ease;
 }
 
-.navbar a:hover {
+.links:hover {
   color: var(--color-primary);
 }
 
-.navbar a.active {
+.links.active {
   color: var(--color-primary);
   font-weight: 600;
+}
+
+.navbar-logo-link {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo-linkSpan {
+  color: var(--color-primary);
+}
+
+.navbar-logo-link:hover {
+  /*animation*/
 }
