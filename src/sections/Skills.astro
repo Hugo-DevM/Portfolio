@@ -17,23 +17,113 @@ import TypeScriptIcon from "../icons/TypeScriptIcon.astro";
 import VercelIcon from "../icons/VercelIcon.astro";
 ---
 
-<div class="skills-tecno">
-  <h2 class="title">Skills</h2>
-  <div class="content-tecno">
-    <AstroIcon size={48} />
-    <FirebaseIcon size={48} />
-    <CssIcon size={48} />
-    <GitHubIcon size={48} />
-    <GitIcon size={48} />
-    <HtmlIcon size={48} />
-    <JavaScriptIcon size={48} />
-    <NextjsIcon size={48} />
-    <NodejsIcon size={48} />
-    <PostgreSQLIcon size={48} />
-    <ReactIcon size={48} />
-    <SupabaseIcon size={48} />
-    <TailwindIcon size={48} />
-    <TypeScriptIcon size={48} />
-    <VercelIcon size={48} />
+<section class="skills-tecno" id="skills">
+  <div class="skills-header">
+    <p class="section-eyebrow">04 · HERRAMIENTAS</p>
+    <h2 class="title-skills">Stack & Herramientas</h2>
   </div>
-</div>
+  <div class="tech-sphere" id="tech-sphere">
+    <span class="sphere-item"><AstroIcon size={48} /></span>
+    <span class="sphere-item"><FirebaseIcon size={48} /></span>
+    <span class="sphere-item"><CssIcon size={48} /></span>
+    <span class="sphere-item"><GitHubIcon size={48} /></span>
+    <span class="sphere-item"><GitIcon size={48} /></span>
+    <span class="sphere-item"><HtmlIcon size={48} /></span>
+    <span class="sphere-item"><JavaScriptIcon size={48} /></span>
+    <span class="sphere-item"><NextjsIcon size={48} /></span>
+    <span class="sphere-item"><NodejsIcon size={48} /></span>
+    <span class="sphere-item"><PostgreSQLIcon size={48} /></span>
+    <span class="sphere-item"><ReactIcon size={48} /></span>
+    <span class="sphere-item"><SupabaseIcon size={48} /></span>
+    <span class="sphere-item"><TailwindIcon size={48} /></span>
+    <span class="sphere-item"><TypeScriptIcon size={48} /></span>
+    <span class="sphere-item"><VercelIcon size={48} /></span>
+  </div>
+</section>
+
+<script>
+  const sphere = document.getElementById("tech-sphere");
+  if (sphere) {
+    const items = Array.from(sphere.children) as HTMLElement[];
+    const total = items.length;
+    let radius = sphere.offsetWidth / 2 - 48;
+
+    // Distribución uniforme en esfera (Fibonacci)
+    const points = items.map((_, i) => {
+      const phi = Math.acos(1 - (2 * (i + 0.5)) / total);
+      const theta = Math.PI * (1 + Math.sqrt(5)) * i;
+      return {
+        x: Math.sin(phi) * Math.cos(theta),
+        y: Math.cos(phi),
+        z: Math.sin(phi) * Math.sin(theta),
+      };
+    });
+
+    const AUTO_SPEED = 0.004;
+    let rotX = 0;
+    let rotY = 0;
+    let velX = 0;
+    let velY = AUTO_SPEED;
+    let dragging = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    sphere.addEventListener("pointerdown", (e) => {
+      dragging = true;
+      lastX = e.clientX;
+      lastY = e.clientY;
+      sphere.classList.add("grabbing");
+    });
+
+    window.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      velY = (e.clientX - lastX) * 0.003;
+      velX = (e.clientY - lastY) * 0.003;
+      lastX = e.clientX;
+      lastY = e.clientY;
+    });
+
+    window.addEventListener("pointerup", () => {
+      dragging = false;
+      sphere.classList.remove("grabbing");
+    });
+
+    window.addEventListener("resize", () => {
+      radius = sphere.offsetWidth / 2 - 48;
+    });
+
+    function render() {
+      rotY += velY;
+      rotX += velX;
+
+      // Al soltar, vuelve suavemente a la rotación automática
+      if (!dragging) {
+        velY += (AUTO_SPEED - velY) * 0.03;
+        velX *= 0.95;
+      }
+
+      const sinY = Math.sin(rotY);
+      const cosY = Math.cos(rotY);
+      const sinX = Math.sin(rotX);
+      const cosX = Math.cos(rotX);
+
+      points.forEach((p, i) => {
+        const x1 = p.x * cosY + p.z * sinY;
+        const z1 = -p.x * sinY + p.z * cosY;
+        const y1 = p.y * cosX - z1 * sinX;
+        const z2 = p.y * sinX + z1 * cosX;
+
+        const depth = (z2 + 1) / 2; // 0 (atrás) → 1 (frente)
+        const scale = 0.45 + depth * 0.75;
+        const item = items[i];
+        item.style.transform = `translate(-50%, -50%) translate(${x1 * radius}px, ${y1 * radius}px) scale(${scale})`;
+        item.style.opacity = `${0.25 + depth * 0.75}`;
+        item.style.zIndex = `${Math.round(depth * 100)}`;
+      });
+
+      requestAnimationFrame(render);
+    }
+
+    render();
+  }
+</script>

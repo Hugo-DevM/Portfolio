@@ -1,38 +1,64 @@
 .skills-tecno {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 2rem;
-  flex-direction: column;
-}
-
-.content-tecno {
-  max-width: 1200px;
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
   gap: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 4rem;
-  place-items: center;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding-inline: 2rem;
+  scroll-margin-top: 60px;
 }
 
-.title {
-  font-size: 32px;
+.skills-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.content-tecno svg {
+.title-skills {
+  font-size: 2.5rem;
+  color: white;
+  margin: 0;
+}
+
+.tech-sphere {
+  position: relative;
+  width: min(420px, 80vw);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.tech-sphere.grabbing {
+  cursor: grabbing;
+}
+
+.sphere-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.sphere-item svg {
   width: 48px;
   height: 48px;
-  max-width: 48px;
-  max-height: 48px;
+  display: block;
 }
 
 @media (max-width: 768px) {
-  .content-tecno {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    gap: 1rem;
+  .skills-tecno {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-header {
+    align-items: center;
+  }
+
+  .title-skills {
+    text-align: center;
   }
 }

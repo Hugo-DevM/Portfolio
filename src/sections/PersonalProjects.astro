@@ -1,0 +1,49 @@
+---
+import Card from "../components/ui/Card.astro";
+import "./styles/projects.css";
+
+const personales = [
+  {
+    img: "/gymMate.webp",
+    title: "GymMate",
+    status: "En pausa",
+    description:
+      "Aplicacion movil de gestion de gimnasio para administrar usuarios y entrenadores incluyendo el acceso mediante codigo QR.",
+    repo: "GitHub",
+    skills: ["React Native", "CSS", "JavaScript", "Firebase"],
+    link: "https://github.com/Hugo-DevM/Project",
+  },
+  {
+    img: "/freelanzer.webp",
+    webLink: "https://freelanzer.mx/",
+    title: "Freelanzer",
+    status: "Descontinuado",
+    description:
+      "Software para la gestión de servicios y proyectos freelance. Optimiza procesos, clientes y productividad.",
+    repo: "GitHub",
+    skills: ["Next.js", "React", "Tailwind", "TypeScript"],
+    link: "https://github.com/Hugo-DevM/FreelanzerMX",
+  },
+];
+---
+
+<section class="projects" id="personales">
+  <p class="section-eyebrow">03 · PERSONALES</p>
+  <h2 class="title-Proj">Proyectos personales</h2>
+  <div class="content-cards personal-cards">
+    {
+      personales.map((p) => (
+        <Card
+          webLink={p.webLink}
+          img={p.img}
+          title={p.title}
+          status={p.status}
+          description={p.description}
+          project={p.repo}
+          linkProject={p.link}
+          skills={p.skills}
+        />
+      ))
+    }
+  </div>
+</section>

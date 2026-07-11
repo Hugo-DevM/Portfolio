@@ -8,19 +8,21 @@ const {
   project,
   linkProject,
   skills = [],
+  status,
 } = Astro.props;
 ---
 
 <div class="card">
   <div class="content-img-projects">
-    <img class="img" src={img} alt="Img Project" />
+    {status && <span class="status-badge">{status}</span>}
+    <img class="img" src={img} alt={`Captura de ${title}`} />
   </div>
-  <div class="content-text">
+  <div class="card-content">
     <a class="titleCard" href={webLink}>{title}</a>
     <p class="description">{description}</p>
-  </div>
-  <div class="content-skills">
-    <a class="title-project" href={linkProject} target="_blank">{project}</a>
-    {skills.map((s: string) => <span class="skills">{s}</span>)}
+    <div class="content-skills">
+      {skills.map((s: string) => <span class="pill">{s}</span>)}
+    </div>
+    <a class="github-link" href={linkProject} target="_blank">{project} →</a>
   </div>
 </div>

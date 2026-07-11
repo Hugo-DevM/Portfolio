@@ -1,55 +1,34 @@
 ---
-import Card from "../components/ui/Card.astro";
 import "./styles/projects.css";
 
-const projects = [
-  {
-    img: "/freelanzer.webp",
-    webLink: "https://freelanzer.mx/",
-    title: "Freelanzer",
-    description:
-      "Software para la gestión de servicios y proyectos freelance. Optimiza procesos, clientes y productividad.",
-    repo: "GitHub",
-    skills: ["Next.js", "React", "Tailwind", "TypeScript"],
-    link: "https://github.com/Hugo-DevM/FreelanzerMX",
-  },
-  {
-    img: "/fidelizaApp.webp",
-    title: "Fideliza+",
-    webLink: "https://mx.fideliza.app/login",
-    description:
-      "Plataforma enfocada en la fidelización de clientes para negocios. Crea recompensas y premia a tus clientes mas fieles. (En desarrollo)",
-    repo: "GitHub",
-    skills: ["Next.js", "React", "CSS", "TypeScript"],
-    link: "https://github.com/Hugo-DevM/fideliza-app",
-  },
-  {
-    img: "/gymMate.webp",
-    title: "GymMate",
-    description:
-      "Aplicacion movil de gestion de gimnasio para administrar usuarios y entrenadores incluyendo el acceso mediante codigo QR.",
-    repo: "GitHub",
-    skills: ["React Native", "CSS", "JavaScript", "Firebase"],
-    link: "https://github.com/Hugo-DevM/Project",
-  },
-];
+const featured = {
+  img: "/fidelizaApp.webp",
+  title: "Fideliza+",
+  webLink: "https://mx.fideliza.app/login",
+  description:
+    "Plataforma enfocada en la fidelización de clientes para negocios. Crea recompensas y premia a tus clientes mas fieles. (En desarrollo)",
+  skills: ["Next.js", "React", "CSS", "TypeScript"],
+  link: "https://github.com/Hugo-DevM/fideliza-app",
+};
 ---
 
-<div class="projects" id="projects">
-  <h2 class="title-Proj">Proyectos Destacados</h2>
-  <div class="content-cards">
-    {
-      projects.map((p) => (
-        <Card
-          webLink={p.webLink}
-          img={p.img}
-          title={p.title}
-          description={p.description}
-          project={p.repo}
-          linkProject={p.link}
-          skills={p.skills}
-        />
-      ))
-    }
+<section class="projects" id="projects">
+  <p class="section-eyebrow">01 · PRODUCTO SaaS</p>
+  <h2 class="title-Proj">Producto SaaS</h2>
+  <div class="featured-card">
+    <a class="featured-img" href={featured.webLink} target="_blank">
+      <img src={featured.img} alt={`Captura de ${featured.title}`} />
+    </a>
+    <div class="featured-content">
+      <span class="featured-badge">⭐ PRINCIPAL</span>
+      <a class="featured-title" href={featured.webLink} target="_blank"
+        >{featured.title}</a
+      >
+      <p class="featured-description">{featured.description}</p>
+      <div class="featured-skills">
+        {featured.skills.map((s) => <span class="pill">{s}</span>)}
+      </div>
+      <a class="github-link" href={featured.link} target="_blank">GitHub →</a>
+    </div>
   </div>
-</div>
+</section>
