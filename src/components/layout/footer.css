@@ -9,6 +9,16 @@
   color: gray;
 }
 
+.privacy-link {
+  color: gray;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.privacy-link:hover {
+  color: var(--color-primary);
+}
+
 .links {
   display: flex;
   align-items: center;

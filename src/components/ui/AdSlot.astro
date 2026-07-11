@@ -1,0 +1,56 @@
+---
+/*
+  Espacio para anuncio (Google AdSense).
+
+  CUANDO TE APRUEBEN ADSENSE:
+  1. En LayoutBlog.astro, dentro del <head>, agrega el script que te da Google:
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  2. Descomenta el bloque <ins> de abajo y pon tu data-ad-client y data-ad-slot.
+  3. Borra el div .ad-placeholder.
+*/
+---
+
+<div class="ad-slot">
+  <!--
+  <ins
+    class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+    data-ad-slot="XXXXXXXXXX"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  -->
+  <div class="ad-placeholder">
+    <span>Publicidad</span>
+  </div>
+</div>
+
+<style>
+  .ad-slot {
+    position: sticky;
+    top: 2rem;
+    width: 160px;
+  }
+
+  .ad-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 600px; /* formato estándar 160x600 (wide skyscraper) */
+    border: 1px dashed rgba(159, 32, 239, 0.25);
+    border-radius: 12px;
+    background: rgba(11, 9, 19, 0.6);
+  }
+
+  .ad-placeholder span {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+  }
+</style>
